@@ -14,7 +14,11 @@ const Home = () => {
   useEffect(() => {
     fetchdata();
   }, []);
-
+const deleteProduct=async(id)=>{
+await axios.delete(`${PRODUCTS_URL}/${id}`)
+const filteredData=data.filter((obj)=> obj.id!=id);
+setData(filteredData)
+}
   return (
     <section id="products">
       <h2>Product List:</h2>
@@ -26,7 +30,7 @@ const Home = () => {
               {obj.username}
               <div>
                 {" "}
-                <button className="deleteBtn">Delete</button>
+                <button onClick={()=>deleteProduct(obj.id)} className="deleteBtn">Delete</button>
               </div>
             </div>
           </div>
