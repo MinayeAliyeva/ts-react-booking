@@ -28,6 +28,7 @@ const Login = (): JSX.Element => {
     const find = data.find((obj) => obj.name == user.lname);
     if (find) {
       navigate('/');
+      localStorage.setItem('user',JSON.stringify(find))
     } else {
       console.log("User not found");
     }

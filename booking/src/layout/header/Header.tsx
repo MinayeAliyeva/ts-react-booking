@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+// const find=JSON.parse(localStorage.getItem('user'));
+// console.log(find);
 
 const Header = () => {
   return (
@@ -7,6 +9,9 @@ const Header = () => {
       <Link to="/about">About</Link>
       <Link to="/signUp">Sign Up</Link>
       <Link to="/login">Login</Link>
+        {/* {find.lname}
+        {find.slname} */}
+       
     </header>
   );
 };
