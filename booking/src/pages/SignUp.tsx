@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 const USERS_URL = "http://localhost:3000/users";
 
 const SignUp = () => {
+  const navigate = useNavigate();
   interface IUser {
     name: string;
     sname: string;
-    id?:number
+    id?: number;
   }
   const initialData: IUser = {
     name: "",
@@ -24,9 +26,10 @@ const SignUp = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     axios.post(USERS_URL, user);
-    getUsers()
-    setUser(initialData)
-  
+    getUsers();
+    //valulari sifirlasin
+    setUser(initialData);
+    navigate("/login");
   };
   const getUsers = async () => {
     const res = await axios.get(USERS_URL);
@@ -35,7 +38,6 @@ const SignUp = () => {
   useEffect(() => {
     getUsers();
   }, [user]);
-  console.log(users);
 
   return (
     <>

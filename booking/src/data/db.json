@@ -1,54 +1,14 @@
 {
   "users": [
     {
-      "name": "Nehru Chase",
-      "sname": "Renee Battle",
+      "name": "Hiram Vang",
+      "sname": "Caryn Patton",
       "id": 1
     },
     {
-      "name": "Montana Arnold",
-      "sname": "Shoshana Lane",
+      "name": "Minaya",
+      "sname": "Aliyeva",
       "id": 2
-    },
-    {
-      "name": "Benedict Woodward",
-      "sname": "Colby Pena",
-      "id": 3
-    },
-    {
-      "name": "Kasper Camacho",
-      "sname": "Ralph Pearson",
-      "id": 4
-    },
-    {
-      "name": "Aspen Fitzgerald",
-      "sname": "Ariana Herman",
-      "id": 5
-    },
-    {
-      "name": "Yasir Lowery",
-      "sname": "Kasimir Strong",
-      "id": 6
-    },
-    {
-      "name": "Brenna Robinson",
-      "sname": "William Charles",
-      "id": 7
-    },
-    {
-      "name": "",
-      "sname": "",
-      "id": 8
-    },
-    {
-      "name": "Amena Davis",
-      "sname": "Nina Sears",
-      "id": 9
-    },
-    {
-      "name": "Stewart Sawyer",
-      "sname": "Ferris Mathews",
-      "id": 10
     }
   ]
 }
