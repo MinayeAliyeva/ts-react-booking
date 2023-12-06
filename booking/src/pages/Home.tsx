@@ -9,6 +9,7 @@ interface IProduct {
 const Home = (): JSX.Element => {
   const PRODUCTS_URL = "https://jsonplaceholder.typicode.com/users";
   const [data, setData] = useState<IProduct[]>([]);
+
   const fetchdata = async (): Promise<IProduct[]> => {
     const response = await axios.get<IProduct[]>(PRODUCTS_URL);
     const data = response.data;
@@ -19,12 +20,13 @@ const Home = (): JSX.Element => {
   useEffect(() => {
     fetchdata();
   }, []);
+
   const deleteProduct = async (id: number): Promise<void> => {
     await axios.delete(`${PRODUCTS_URL}/${id}`);
     const filteredData = data.filter((obj) => obj.id !== id);
     setData(filteredData);
   };
-  console.log(data);
+  // console.log(data);
 
   return (
     <section id="products">

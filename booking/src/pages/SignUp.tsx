@@ -1,16 +1,18 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 const USERS_URL = "http://localhost:3000/users";
 
 const SignUp = () => {
-  interface IUser{
-    name:string,
-    sname:string
+  interface IUser {
+    name: string;
+    sname: string;
+    id?:number
   }
-  const initialData :IUser= {
+  const initialData: IUser = {
     name: "",
     sname: "",
   };
+  const [users, setusers] = useState<IUser[]>([]);
   const [user, setUser] = useState<IUser>(initialData);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -22,17 +24,40 @@ const SignUp = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     axios.post(USERS_URL, user);
+    getUsers()
     setUser(initialData)
+  
   };
+  const getUsers = async () => {
+    const res = await axios.get(USERS_URL);
+    setusers(res.data);
+  };
+  useEffect(() => {
+    getUsers();
+  }, [user]);
+  console.log(users);
+
   return (
-    <form onSubmit={(e) => handleSubmit(e)} >
-      <h1>Sign Up</h1>
-      <label>Name</label>
-      <input name="name" onChange={(e) => handleChange(e)} />
-      <label>Surname</label>
-      <input name="sname" onChange={(e) => handleChange(e)} />
-      <button type="submit" >SignUp</button>
-    </form>
+    <>
+      <form onSubmit={(e) => handleSubmit(e)}>
+        <h1>Sign Up</h1>
+        <label>Name</label>
+        <input name="name" onChange={(e) => handleChange(e)} />
+        <label>Surname</label>
+        <input name="sname" onChange={(e) => handleChange(e)} />
+        <button type="submit">SignUp</button>
+      </form>
+      <div className="users">
+        {users &&
+          users.map((user) => (
+            <div className="user" key={user.id}>
+              <h2>{user.name}</h2>
+              <h2>{user.sname}</h2>
+              <h2>{user.id}</h2>
+            </div>
+          ))}
+      </div>
+    </>
   );
 };
 

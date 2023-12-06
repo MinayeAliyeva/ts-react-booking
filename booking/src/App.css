@@ -33,3 +33,14 @@ form{
     padding: 20px;
     row-gap: 10px;
 }
+.users{
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.user{
+    border: 1px solid;
+    padding: 20px;
+}
